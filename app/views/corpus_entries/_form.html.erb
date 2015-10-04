@@ -1,0 +1,21 @@
+<%= form_for(@corpus_entry) do |f| %>
+  <% if @corpus_entry.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@corpus_entry.errors.count, "error") %> prohibited this corpus_entry from being saved:</h2>
+
+      <ul>
+      <% @corpus_entry.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :note %><br>
+    <%= f.text_field :note %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

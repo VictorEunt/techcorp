@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :corpus_entries
+
   devise_for :users
   root "pages#home"
   get "upload" => "pages#upload"
