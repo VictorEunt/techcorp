@@ -11,10 +11,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151004194404) do
+ActiveRecord::Schema.define(version: 20151005005146) do
 
   create_table "corpus_entries", force: true do |t|
     t.string   "note"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "documents", force: true do |t|
+    t.string   "genre"
+    t.string   "deliverable"
+    t.string   "classification"
+    t.string   "deadline"
+    t.string   "format"
+    t.string   "grade"
+    t.text     "file_text"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -36,6 +48,17 @@ ActiveRecord::Schema.define(version: 20151004194404) do
 
   add_index "members", ["email"], name: "index_members_on_email", unique: true
   add_index "members", ["reset_password_token"], name: "index_members_on_reset_password_token", unique: true
+
+  create_table "students", force: true do |t|
+    t.string   "level"
+    t.string   "major"
+    t.string   "gender"
+    t.integer  "age"
+    t.string   "language"
+    t.string   "ethnicity"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false

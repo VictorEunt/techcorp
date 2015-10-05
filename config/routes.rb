@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  resources :students
+
+  resources :documents
+
   devise_for :members
   resources :corpus_entries
 

@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  genre: MyString
+  deliverable: MyString
+  classification: MyString
+  deadline: MyString
+  format: MyString
+  grade: MyString
+  file_text: MyText
+
+two:
+  genre: MyString
+  deliverable: MyString
+  classification: MyString
+  deadline: MyString
+  format: MyString
+  grade: MyString
+  file_text: MyText

@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Genre:</strong>
+  <%= @document.genre %>
+</p>
+
+<p>
+  <strong>Deliverable:</strong>
+  <%= @document.deliverable %>
+</p>
+
+<p>
+  <strong>Classification:</strong>
+  <%= @document.classification %>
+</p>
+
+<p>
+  <strong>Deadline:</strong>
+  <%= @document.deadline %>
+</p>
+
+<p>
+  <strong>Format:</strong>
+  <%= @document.format %>
+</p>
+
+<p>
+  <strong>Grade:</strong>
+  <%= @document.grade %>
+</p>
+
+<p>
+  <strong>File text:</strong>
+  <%= @document.file_text %>
+</p>
+
+<%= link_to 'Edit', edit_document_path(@document) %> |
+<%= link_to 'Back', documents_path %>
