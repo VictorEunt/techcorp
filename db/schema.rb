@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151005005146) do
+ActiveRecord::Schema.define(version: 20151012070526) do
 
   create_table "corpus_entries", force: true do |t|
     t.string   "note"
@@ -27,6 +27,20 @@ ActiveRecord::Schema.define(version: 20151005005146) do
     t.string   "format"
     t.string   "grade"
     t.text     "file_text"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "corpus_entry_id"
+    t.integer  "student_id"
+  end
+
+  add_index "documents", ["corpus_entry_id"], name: "index_documents_on_corpus_entry_id"
+  add_index "documents", ["student_id"], name: "index_documents_on_student_id"
+
+  create_table "instructors", force: true do |t|
+    t.string   "title"
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "position"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -58,7 +72,23 @@ ActiveRecord::Schema.define(version: 20151005005146) do
     t.string   "ethnicity"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "tech_class_id"
   end
+
+  add_index "students", ["tech_class_id"], name: "index_students_on_tech_class_id"
+
+  create_table "tech_classes", force: true do |t|
+    t.integer  "number"
+    t.integer  "section"
+    t.string   "day"
+    t.string   "time"
+    t.integer  "year"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "instructor_id"
+  end
+
+  add_index "tech_classes", ["instructor_id"], name: "index_tech_classes_on_instructor_id"
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false

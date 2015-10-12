@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Number:</strong>
+  <%= @tech_class.number %>
+</p>
+
+<p>
+  <strong>Section:</strong>
+  <%= @tech_class.section %>
+</p>
+
+<p>
+  <strong>Day:</strong>
+  <%= @tech_class.day %>
+</p>
+
+<p>
+  <strong>Time:</strong>
+  <%= @tech_class.time %>
+</p>
+
+<p>
+  <strong>Year:</strong>
+  <%= @tech_class.year %>
+</p>
+
+<%= link_to 'Edit', edit_tech_class_path(@tech_class) %> |
+<%= link_to 'Back', tech_classes_path %>

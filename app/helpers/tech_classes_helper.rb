@@ -1,0 +1,2 @@
+module TechClassesHelper
+end
