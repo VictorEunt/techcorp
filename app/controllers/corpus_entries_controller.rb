@@ -14,7 +14,7 @@ class CorpusEntriesController < ApplicationController
 
   def new
     @corpus_entry = CorpusEntry.new
-    respond_with(@corpus_entry)
+    @corpus_entry.create_document
   end
 
   def edit
@@ -22,8 +22,13 @@ class CorpusEntriesController < ApplicationController
 
   def create
     @corpus_entry = CorpusEntry.new(corpus_entry_params)
-    @corpus_entry.save
-    respond_with(@corpus_entry)
+    @corpus_entry.document
+    
+    if @corpus_entry.save
+      redirect_to @corpus_entry
+    else
+      render action: :new
+    end
   end
 
   def update
@@ -42,6 +47,6 @@ class CorpusEntriesController < ApplicationController
     end
 
     def corpus_entry_params
-      params.require(:corpus_entry).permit(:note)
+      params.require(:corpus_entry).permit(:note, document_attributes: [:genre])
     end
 end

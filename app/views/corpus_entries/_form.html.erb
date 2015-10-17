@@ -11,10 +11,16 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :note %><br>
-    <%= f.text_field :note %>
+  <div class="form-group">
+    <%= f.text_field :note, placeholder: "Document ID", class: "form-control" %>
   </div>
+
+<%= f.fields_for :document do |p| %>
+  <div class="form-group">
+    <%= p.text_field :genre, placeholder: "Genre", class: "form-control" %>
+  </div>
+<% end %>
+
   <div class="actions">
     <%= f.submit %>
   </div>
